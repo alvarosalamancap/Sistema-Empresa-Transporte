@@ -1,0 +1,87 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Sistema de Mantención de Camiones";
+}
+
+<style>
+    body {
+        background-color: #e6f0ff; /* Azul claro */
+        color: #000000;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+    }
+
+    header {
+        background-color: #003366;
+        color: white;
+        padding: 30px 0;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+    .main-content {
+        text-align: center;
+        padding: 60px 20px;
+    }
+
+        .main-content h2 {
+            color: #003366;
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .main-content p {
+            color: #333333;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+    .btn-custom {
+        background-color: #003366;
+        color: white;
+        border: none;
+        padding: 15px 35px;
+        font-size: 18px;
+        border-radius: 8px;
+        text-decoration: none;
+        margin: 10px;
+        display: inline-block;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+        .btn-custom:hover {
+            background-color: #002244;
+            transform: scale(1.05);
+            color: white;
+        }
+
+    @@media (max-width: 600px) {
+        .btn-custom
+
+    {
+        width: 80%;
+        font-size: 16px;
+    }
+
+    }
+</style>
+
+<header>
+    <h1>Sistema de Mantención de Camiones</h1>
+</header>
+
+<div class="main-content">
+    <h2>Bienvenido al sistema</h2>
+    <p>Administra tus camiones, realiza mantenciones y controla su estado de manera eficiente.</p>
+
+    <a class="btn-custom" href="/ListadoCamiones">Ir al Listado de Camiones</a>
+    <a class="btn-custom" href="/RegistrarViaje">Registrar Viaje</a>
+    <a class="btn-custom" href="/ListarViajes">Ir a Listado de Viajes</a>
+</div>

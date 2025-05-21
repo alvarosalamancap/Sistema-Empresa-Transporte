@@ -1,0 +1,48 @@
+﻿@page
+@model RegistrarViajeModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<h2>Registrar Viaje</h2>
+
+<form method="post" onsubmit="return confirmarRegistro();">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="viaje.camion_id" class="control-label"></label>
+        <select asp-for="viaje.camion_id" asp-items="Model.CamionesDisponibles" class="form-control" onchange="console.log('Camión seleccionado:', this.value)"></select>
+        <span asp-validation-for="viaje.camion_id" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="viaje.destino" class="control-label"></label>
+        <input asp-for="viaje.destino" class="form-control" oninput="console.log('Destino ingresado:', this.value)" />
+        <span asp-validation-for="viaje.destino" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="viaje.fecha" class="control-label"></label>
+        <input asp-for="viaje.fecha" class="form-control" type="date" onchange="console.log('Fecha seleccionada:', this.value)" />
+        <span asp-validation-for="viaje.fecha" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary" onclick="console.log('apretando boton registrar')">Registrar Viaje</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        function confirmarRegistro() {
+            console.log("🟡 Confirmación mostrada al usuario");
+            const confirmado = confirm("¿Estás seguro de que deseas registrar este viaje?");
+            if (confirmado) {
+                console.log("✅ Usuario confirmó el registro");
+            } else {
+                console.log("❌ Usuario canceló el registro");
+            }
+            return confirmado;
+        }
+    </script>
+}
+
+
+}

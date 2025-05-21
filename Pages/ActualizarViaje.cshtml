@@ -1,0 +1,32 @@
+﻿@page "{id:int}"
+@model ActualizarViajeModel
+@{
+    ViewData["Title"] = "Actualizar Estado del Viaje";
+}
+
+<h2>Actualizar Estado del Viaje</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="viaje.id" />
+
+    <div class="form-group">
+        <label>Camión</label>
+        <input class="form-control" value="@Model.viaje.camion?.Marca @Model.viaje.camion?.Modelo" disabled />
+    </div>
+
+    <div class="form-group">
+        <label>Destino</label>
+        <input class="form-control" value="@Model.viaje.destino" disabled />
+    </div>
+
+    <div class="form-group">
+        <label for="estado">Estado</label>
+        <select asp-for="viaje.estado" class="form-control" required>
+            <option value="Iniciado">Iniciado</option>
+            <option value="Terminado">Terminado</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Actualizar</button>
+    <a asp-page="/ListarViajes" class="btn btn-secondary">Volver</a>
+</form>

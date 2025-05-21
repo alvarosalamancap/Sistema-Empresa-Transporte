@@ -1,0 +1,34 @@
+﻿@page "{camionId:int}"
+@model MantencionCamiones.Pages.ListarMantencionesModel
+@{
+    ViewData["Title"] = "Mantenciones del Camión";
+}
+
+<h2>Mantenciones para Camión @Model.Camion.Marca @Model.Camion.Modelo</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Fecha</th>
+            <th>Observación</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Mantenciones.Count == 0)
+        {
+            <tr><td colspan="2">No hay mantenciones registradas.</td></tr>
+        }
+        else
+        {
+            @foreach (var m in Model.Mantenciones)
+            {
+                <tr>
+                    <td>@m.Fecha.ToShortDateString()</td>
+                    <td>@m.Observacion</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+<a asp-page="/ListadoCamiones" class="btn btn-secondary">Volver al listado</a>

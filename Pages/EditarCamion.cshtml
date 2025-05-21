@@ -1,0 +1,42 @@
+﻿@page "{id:int}"
+@model MantencionCamiones.Pages.EditarCamionModel
+
+<h1>Editar Camión</h1>
+
+@if (Model.Camion != null)
+{
+    <form method="post" asp-route-id="@Model.Camion.Id">
+        <input type="hidden" asp-for="Camion.Id" />
+
+        <div class="form-group">
+            <label>Marca</label>
+            <input class="form-control" value="@Model.Camion.Marca" disabled />
+        </div>
+
+        <div class="form-group">
+            <label>Modelo</label>
+            <input class="form-control" value="@Model.Camion.Modelo" disabled />
+        </div>
+
+        <div class="form-group">
+            <label>Estado</label>
+            <select asp-for="Camion.Estado" class="form-control">
+                <option>Disponible</option>
+                <option>EnViaje</option>
+                <option>Malo</option>
+                <option>EnReparacion</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Kilometraje</label>
+            <input asp-for="Camion.Kilometraje" class="form-control" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Guardar cambios</button>
+    </form>
+}
+else
+{
+    <div class="alert alert-danger">Camión no encontrado.</div>
+}

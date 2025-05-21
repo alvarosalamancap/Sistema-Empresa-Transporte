@@ -1,0 +1,37 @@
+﻿
+
+@page
+@model ListarViajesModel
+
+<h2>Lista de Viajes</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Camión</th>
+            <th>Fecha</th>
+            <th>Destino</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var viaje in Model.Viajes)
+        {
+            <tr>
+                <td>@viaje.id</td>
+                <td>@viaje.camion?.Marca @viaje.camion?.Modelo</td>
+                <td>@viaje.fecha.ToString("yyyy-MM-dd")</td>
+                <td>@viaje.destino</td>
+                <td>@viaje.estado</td>
+                <td>
+                    <a asp-page="/ActualizarViaje" asp-route-id="@viaje.id" class="btn btn-sm btn-warning">Actualizar Estado</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<a asp-page="/RegistrarViaje" class="btn btn-success mt-3">Registrar Nuevo Viaje</a>

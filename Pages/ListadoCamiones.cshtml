@@ -1,0 +1,40 @@
+﻿@page
+@model bodega.Pages.ListadoCamionesModel
+
+<div class="text-center">
+    <h1 class="display-4">Listado de Camiones</h1>
+</div>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Año</th>
+            <th>Kilometraje</th>
+            <th>Estado</th>
+            <th>Acciones</th> <!-- Nueva columna de acciones -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var camion in Model.ListaCamiones)
+        {
+            <tr>
+                <td>@camion.Id</td>
+                <td>@camion.Marca</td>
+                <td>@camion.Modelo</td>
+                <td>@camion.Anio</td>
+                <td>@camion.Kilometraje</td>
+                <td>@camion.Estado</td>
+                <td>
+                    <!-- Botón que redirige a la página de edición -->
+                    <a class="btn btn-primary" href="/ListarMantenciones/@camion.Id">Ver Mantenciones</a>
+                    <a class="btn btn-success" href="/AgregarMantencion/@camion.Id">Agregar Mantención</a>
+                    <a class="btn btn-warning" href="/EditarCamion/@camion.Id">Editar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
